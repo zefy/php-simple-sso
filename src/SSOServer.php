@@ -47,7 +47,7 @@ abstract class SSOServer implements SSOServerInterface
 
             $this->saveBrokerSessionData($sessionId, $this->getSessionData('id'));
         } catch (SSOServerException $e) {
-            return $this->returnJson($e);
+            return $this->redirect(null, ['sso_error' => $e->getMessage()]);
         }
 
         $this->attachSuccess();
@@ -191,7 +191,7 @@ abstract class SSOServer implements SSOServerInterface
     {
         $broker = $this->getBrokerInfo($brokerId);
 
-        if (!isset($broker)) {
+        if (!$broker) {
             $this->fail('Provided broker does not exist.');
         }
 
@@ -212,7 +212,7 @@ abstract class SSOServer implements SSOServerInterface
     {
         $broker = $this->getBrokerInfo($brokerId);
 
-        if (!isset($broker)) {
+        if (!$broker) {
             $this->fail('Provided broker does not exist.');
         }
 
