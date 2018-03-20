@@ -81,7 +81,7 @@ abstract class SSOBroker implements SSOBrokerInterface
      */
     public function getUserInfo()
     {
-        if (!isset($this->userInfo) || !$this->userInfo) {
+        if (!isset($this->userInfo) || empty($this->userInfo)) {
             $this->userInfo = $this->makeRequest('GET', 'userInfo');
         }
 
