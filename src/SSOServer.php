@@ -305,7 +305,7 @@ abstract class SSOServer implements SSOServerInterface
      *
      * @param array|object $user Can be user object or array.
      *
-     * @return array|object
+     * @return mixed
      */
     abstract protected function returnUserInfo($user);
 
@@ -338,7 +338,7 @@ abstract class SSOServer implements SSOServerInterface
      *
      * @param string $key
      *
-     * @return string
+     * @return null|string
      */
     abstract protected function getSessionData(string $key);
 
